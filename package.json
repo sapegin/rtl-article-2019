@@ -1,0 +1,33 @@
+{
+  "name": "rtl-article-2019",
+  "private": true,
+  "dependencies": {
+    "@testing-library/react": "^8.0.5",
+    "babel-jest": "^24.8.0",
+    "fetch-mock": "7.3.3",
+    "jest": "24.8.0",
+    "nock": "10.0.6",
+    "node-fetch": "2.6.0",
+    "react": "16.9.0-alpha.0",
+    "react-dom": "16.9.0-alpha.0",
+    "react-scripts": "3.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
