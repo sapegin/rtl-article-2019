@@ -2,14 +2,13 @@
 import '../../../src/setupTests.js';
 
 import React from 'react';
-import { render, cleanup, fireEvent, wait } from '@testing-library/react';
+import { render, fireEvent, wait } from '@testing-library/react';
 import RemotePizza from '../RemotePizza';
 import { fetchIngredients } from '../../services';
 
 jest.mock('../../services');
 
 afterEach(() => {
-  cleanup();
   fetchIngredients.mockReset();
 });
 

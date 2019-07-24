@@ -2,12 +2,10 @@
 import '../../../src/setupTests.js';
 
 import React from 'react';
-import { render, cleanup, fireEvent, wait } from '@testing-library/react';
+import { render, fireEvent, wait } from '@testing-library/react';
 import RemotePizza from '../RemotePizza';
 
 const ingredients = ['bacon', 'tomato', 'mozzarella', 'pineapples'];
-
-afterEach(cleanup);
 
 test('download ingredients from internets', async () => {
   expect.assertions(4);

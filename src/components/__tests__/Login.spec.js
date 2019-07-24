@@ -2,10 +2,8 @@
 import '../../../src/setupTests.js';
 
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Login from '../Login';
-
-afterEach(cleanup);
 
 test('submits username and password', () => {
   const username = 'me';

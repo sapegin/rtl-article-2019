@@ -2,14 +2,13 @@
 import '../../../src/setupTests.js';
 
 import React from 'react';
-import { render, cleanup, fireEvent, wait } from '@testing-library/react';
+import { render, fireEvent, wait } from '@testing-library/react';
 import nock from 'nock';
 import RemotePizza from '../RemotePizza';
 
 const ingredients = ['bacon', 'tomato', 'mozzarella', 'pineapples'];
 
 afterEach(() => {
-  cleanup();
   nock.restore();
 });
 

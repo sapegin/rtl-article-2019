@@ -2,10 +2,8 @@
 import '../../../src/setupTests.js';
 
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import ExpandCollapse from '../ExpandCollapse';
-
-afterEach(cleanup);
 
 test('button expands and collapses the content', () => {
   const children = 'Hello world';

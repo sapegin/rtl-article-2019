@@ -2,14 +2,13 @@
 import '../../../src/setupTests.js';
 
 import React from 'react';
-import { render, cleanup, fireEvent, wait } from '@testing-library/react';
+import { render, fireEvent, wait } from '@testing-library/react';
 import fetchMock from 'fetch-mock';
 import RemotePizza from '../RemotePizza';
 
 const ingredients = ['bacon', 'tomato', 'mozzarella', 'pineapples'];
 
 afterAll(() => {
-  cleanup();
   fetchMock.restore();
 });
 
