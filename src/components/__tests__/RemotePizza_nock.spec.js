@@ -22,7 +22,7 @@ test('download ingredients from internets', async () => {
 
   const { getByText } = render(<RemotePizza />);
 
-  fireEvent.click(getByText('Cook'));
+  fireEvent.click(getByText(/cook/i));
 
   expect(scope.isDone()).toBe(true);
 

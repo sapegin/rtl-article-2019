@@ -18,7 +18,7 @@ test('download ingredients from internets', async () => {
     <RemotePizza fetchIngredients={fetchIngredients} />
   );
 
-  fireEvent.click(getByText('Cook'));
+  fireEvent.click(getByText(/cook/i));
 
   await wait(() => {
     ingredients.forEach(ingredient => {

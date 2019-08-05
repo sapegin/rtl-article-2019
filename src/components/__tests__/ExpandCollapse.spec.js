@@ -13,11 +13,11 @@ test('button expands and collapses the content', () => {
 
   expect(queryByText(children)).not.toBeTruthy();
 
-  fireEvent.click(getByText('Expand'));
+  fireEvent.click(getByText(/expand/i));
 
   expect(queryByText(children)).toBeTruthy();
 
-  fireEvent.click(getByText('Collapse'));
+  fireEvent.click(getByText(/collapse/i));
 
   expect(queryByText(children)).not.toBeTruthy();
 });
