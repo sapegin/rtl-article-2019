@@ -1,8 +1,8 @@
 // This line is only needed for CodeSandbox
-import '../../../src/setupTests.js';
+// import '../../../src/setupTests.js';
 
 import React from 'react';
-import { render, fireEvent, wait } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import nock from 'nock';
 import RemotePizza from '../RemotePizza';
 
@@ -20,15 +20,13 @@ test('download ingredients from internets', async () => {
     .query(true)
     .reply(200, { args: { ingredients } });
 
-  const { getByText } = render(<RemotePizza />);
+  const { getByText, findByText } = render(<RemotePizza />);
 
   fireEvent.click(getByText(/cook/i));
 
   expect(scope.isDone()).toBe(true);
 
-  await wait(() => {
-    ingredients.forEach(ingredient => {
-      expect(getByText(ingredient)).toBeTruthy();
-    });
-  });
+  for (const ingredient of ingredients) {
+    expect(await findByText(ingredient)).toBeInTheDocument();
+  }
 });
