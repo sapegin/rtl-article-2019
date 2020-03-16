@@ -20,9 +20,9 @@ test('download ingredients from internets', async () => {
     .query(true)
     .reply(200, { args: { ingredients } });
 
-  const { getByText, findByText } = render(<RemotePizza />);
+  const { findByText, getByRole } = render(<RemotePizza />);
 
-  fireEvent.click(getByText(/cook/i));
+  fireEvent.click(getByRole('button', { name: /cook/i }));
 
   expect(scope.isDone()).toBe(true);
 

@@ -14,11 +14,11 @@ test('download ingredients from internets', async () => {
     Promise.resolve({
       args: { ingredients },
     });
-  const { getByText, findByText } = render(
+  const { findByText, getByRole } = render(
     <RemotePizza fetchIngredients={fetchIngredients} />
   );
 
-  fireEvent.click(getByText(/cook/i));
+  fireEvent.click(getByRole('button', { name: /cook/i }));
 
   for (const ingredient of ingredients) {
     expect(await findByText(ingredient)).toBeInTheDocument();

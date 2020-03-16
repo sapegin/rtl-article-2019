@@ -19,9 +19,9 @@ test('download ingredients from internets', async () => {
 
   fetchIngredients.mockResolvedValue({ args: { ingredients } });
 
-  const { getByText, findByText } = render(<RemotePizza />);
+  const { findByText, getByRole } = render(<RemotePizza />);
 
-  fireEvent.click(getByText(/cook/i));
+  fireEvent.click(getByRole('button', { name: /cook/i }));
 
   for (const ingredient of ingredients) {
     expect(await findByText(ingredient)).toBeInTheDocument();

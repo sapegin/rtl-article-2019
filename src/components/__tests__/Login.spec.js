@@ -9,7 +9,7 @@ test('submits username and password', () => {
   const username = 'me';
   const password = 'please';
   const onSubmit = jest.fn();
-  const { getByLabelText, getByText } = render(<Login onSubmit={onSubmit} />);
+  const { getByLabelText, getByRole } = render(<Login onSubmit={onSubmit} />);
 
   fireEvent.change(getByLabelText(/username/i), {
     target: { value: username },
@@ -19,7 +19,7 @@ test('submits username and password', () => {
     target: { value: password },
   });
 
-  fireEvent.click(getByText(/log in/i));
+  fireEvent.click(getByRole('button', { name: /log in/i }));
 
   expect(onSubmit).toHaveBeenCalledTimes(1);
   expect(onSubmit).toHaveBeenCalledWith({

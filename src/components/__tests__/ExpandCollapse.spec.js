@@ -7,17 +7,17 @@ import ExpandCollapse from '../ExpandCollapse';
 
 test('button expands and collapses the content', () => {
   const children = 'Hello world';
-  const { getByText, queryByText } = render(
+  const { getByRole, queryByText } = render(
     <ExpandCollapse excerpt="Information about dogs">{children}</ExpandCollapse>
   );
 
   expect(queryByText(children)).not.toBeTruthy();
 
-  fireEvent.click(getByText(/expand/i));
+  fireEvent.click(getByRole('button', { name: /expand/i }));
 
   expect(queryByText(children)).toBeTruthy();
 
-  fireEvent.click(getByText(/collapse/i));
+  fireEvent.click(getByRole('button', { name: /collapse/i }));
 
   expect(queryByText(children)).not.toBeTruthy();
 });
