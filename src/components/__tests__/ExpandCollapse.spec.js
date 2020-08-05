@@ -11,13 +11,13 @@ test('button expands and collapses the content', () => {
     <ExpandCollapse excerpt="Information about dogs">{children}</ExpandCollapse>
   );
 
-  expect(queryByText(children)).not.toBeTruthy();
+  expect(queryByText(children)).not.toBeInTheDocument();
 
   fireEvent.click(getByRole('button', { name: /expand/i }));
 
-  expect(queryByText(children)).toBeTruthy();
+  expect(queryByText(children)).toBeInTheDocument();
 
   fireEvent.click(getByRole('button', { name: /collapse/i }));
 
-  expect(queryByText(children)).not.toBeTruthy();
+  expect(queryByText(children)).not.toBeInTheDocument();
 });
