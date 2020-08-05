@@ -1,8 +1,5 @@
-// This line is only needed for CodeSandbox
-// import '../../../src/setupTests.js';
-
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import RemotePizza from '../RemotePizza';
 import { fetchIngredients } from '../../services';
 
@@ -19,11 +16,11 @@ test('download ingredients from internets', async () => {
 
   fetchIngredients.mockResolvedValue({ args: { ingredients } });
 
-  const { findByText, getByRole } = render(<RemotePizza />);
+  render(<RemotePizza />);
 
-  fireEvent.click(getByRole('button', { name: /cook/i }));
+  fireEvent.click(screen.getByRole('button', { name: /cook/i }));
 
   for (const ingredient of ingredients) {
-    expect(await findByText(ingredient)).toBeInTheDocument();
+    expect(await screen.findByText(ingredient)).toBeInTheDocument();
   }
 });
