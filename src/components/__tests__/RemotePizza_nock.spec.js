@@ -24,9 +24,9 @@ test('download ingredients from internets', async () => {
 
   fireEvent.click(getByRole('button', { name: /cook/i }));
 
-  expect(scope.isDone()).toBe(true);
-
   for (const ingredient of ingredients) {
     expect(await findByText(ingredient)).toBeInTheDocument();
   }
+
+  expect(scope.isDone()).toBe(true);
 });
