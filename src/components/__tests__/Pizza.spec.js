@@ -5,11 +5,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Pizza from '../Pizza';
 
-test('contains all ingredients', async () => {
+test('contains all ingredients', () => {
   const ingredients = ['bacon', 'tomato', 'mozzarella', 'pineapples'];
-  const { findByText } = render(<Pizza ingredients={ingredients} />);
+  const { getByText } = render(<Pizza ingredients={ingredients} />);
 
   for (const ingredient of ingredients) {
-    expect(await findByText(ingredient)).toBeInTheDocument();
+    expect(getByText(ingredient)).toBeInTheDocument();
   }
 });
