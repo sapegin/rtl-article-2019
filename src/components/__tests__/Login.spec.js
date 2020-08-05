@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Login from '../Login';
 
 test('submits username and password', () => {
@@ -8,15 +9,11 @@ test('submits username and password', () => {
   const onSubmit = jest.fn();
   render(<Login onSubmit={onSubmit} />);
 
-  fireEvent.change(screen.getByLabelText(/username/i), {
-    target: { value: username },
-  });
+  userEvent.type(screen.getByLabelText(/username/i), username);
 
-  fireEvent.change(screen.getByLabelText(/password/i), {
-    target: { value: password },
-  });
+  userEvent.type(screen.getByLabelText(/password/i), password);
 
-  fireEvent.click(screen.getByRole('button', { name: /log in/i }));
+  userEvent.click(screen.getByRole('button', { name: /log in/i }));
 
   expect(onSubmit).toHaveBeenCalledTimes(1);
   expect(onSubmit).toHaveBeenCalledWith({

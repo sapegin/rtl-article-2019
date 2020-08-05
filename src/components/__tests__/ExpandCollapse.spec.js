@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ExpandCollapse from '../ExpandCollapse';
 
 test('button expands and collapses the content', () => {
@@ -10,11 +11,11 @@ test('button expands and collapses the content', () => {
 
   expect(screen.queryByText(children)).not.toBeInTheDocument();
 
-  fireEvent.click(screen.getByRole('button', { name: /expand/i }));
+  userEvent.click(screen.getByRole('button', { name: /expand/i }));
 
   expect(screen.queryByText(children)).toBeInTheDocument();
 
-  fireEvent.click(screen.getByRole('button', { name: /collapse/i }));
+  userEvent.click(screen.getByRole('button', { name: /collapse/i }));
 
   expect(screen.queryByText(children)).not.toBeInTheDocument();
 });

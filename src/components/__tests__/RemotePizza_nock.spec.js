@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import nock from 'nock';
 import RemotePizza from '../RemotePizza';
 
@@ -19,7 +20,7 @@ test('download ingredients from internets', async () => {
 
   render(<RemotePizza />);
 
-  fireEvent.click(screen.getByRole('button', { name: /cook/i }));
+  userEvent.click(screen.getByRole('button', { name: /cook/i }));
 
   for (const ingredient of ingredients) {
     expect(await screen.findByText(ingredient)).toBeInTheDocument();
