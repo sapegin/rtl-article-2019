@@ -13,7 +13,7 @@ test('button expands and collapses the content', () => {
 
   userEvent.click(screen.getByRole('button', { name: /expand/i }));
 
-  expect(screen.queryByText(children)).toBeInTheDocument();
+  expect(screen.getByText(children)).toBeInTheDocument();
 
   userEvent.click(screen.getByRole('button', { name: /collapse/i }));
 

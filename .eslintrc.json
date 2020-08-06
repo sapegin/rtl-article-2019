@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tamia/react",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended"
+  ],
+  "plugins": ["testing-library", "jest-dom"],
+  "rules": {
+    "no-await-in-loop": 0,
+    "testing-library/no-wait-for-empty-callback": "error",
+    "testing-library/prefer-explicit-assert": "error",
+    "testing-library/prefer-presence-queries": "error",
+    "testing-library/prefer-wait-for": "error"
+  }
+}

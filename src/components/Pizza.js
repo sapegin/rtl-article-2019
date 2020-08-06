@@ -6,7 +6,7 @@ export default function Pizza({ ingredients }) {
     <>
       <h3>Pizza</h3>
       <ul>
-        {ingredients.map(ingredient => (
+        {ingredients.map((ingredient) => (
           <li key={ingredient}>{ingredient}</li>
         ))}
       </ul>

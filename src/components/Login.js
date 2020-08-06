@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function Login({ onSubmit }) {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit({ username, password });
   };
@@ -16,7 +16,7 @@ export default function Login({ onSubmit }) {
         <input
           name="username"
           value={username}
-          onChange={event => setUsername(event.target.value)}
+          onChange={(event) => setUsername(event.target.value)}
           data-testid="loginForm-username"
         />
       </label>
@@ -26,7 +26,7 @@ export default function Login({ onSubmit }) {
           name="password"
           type="password"
           value={password}
-          onChange={event => setPassword(event.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
           data-testid="loginForm-password"
         />
       </label>
