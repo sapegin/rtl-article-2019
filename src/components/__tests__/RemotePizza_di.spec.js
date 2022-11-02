@@ -7,6 +7,7 @@ const ingredients = ['bacon', 'tomato', 'mozzarella', 'pineapples'];
 
 test('download ingredients from internets', async () => {
   expect.assertions(4);
+  const user = userEvent.setup();
 
   const fetchIngredients = () =>
     Promise.resolve({
@@ -14,7 +15,7 @@ test('download ingredients from internets', async () => {
     });
   render(<RemotePizza fetchIngredients={fetchIngredients} />);
 
-  userEvent.click(screen.getByRole('button', { name: /cook/i }));
+  await user.click(screen.getByRole('button', { name: /cook/i }));
 
   for (const ingredient of ingredients) {
     expect(await screen.findByText(ingredient)).toBeInTheDocument();

@@ -3,17 +3,19 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Login from '../Login';
 
-test('submits username and password', () => {
+test('submits username and password', async () => {
+  const user = userEvent.setup();
   const username = 'me';
   const password = 'please';
   const onSubmit = jest.fn();
+
   render(<Login onSubmit={onSubmit} />);
 
-  userEvent.type(screen.getByLabelText(/username/i), username);
+  await user.type(screen.getByLabelText(/username/i), username);
 
-  userEvent.type(screen.getByLabelText(/password/i), password);
+  await user.type(screen.getByLabelText(/password/i), password);
 
-  userEvent.click(screen.getByRole('button', { name: /log in/i }));
+  await user.click(screen.getByRole('button', { name: /log in/i }));
 
   expect(onSubmit).toHaveBeenCalledTimes(1);
   expect(onSubmit).toHaveBeenCalledWith({

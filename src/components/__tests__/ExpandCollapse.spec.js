@@ -3,7 +3,9 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ExpandCollapse from '../ExpandCollapse';
 
-test('button expands and collapses the content', () => {
+test('button expands and collapses the content', async () => {
+  const user = userEvent.setup();
+
   const children = 'Hello world';
   render(
     <ExpandCollapse excerpt="Information about dogs">{children}</ExpandCollapse>
@@ -11,11 +13,11 @@ test('button expands and collapses the content', () => {
 
   expect(screen.queryByText(children)).not.toBeInTheDocument();
 
-  userEvent.click(screen.getByRole('button', { name: /expand/i }));
+  await user.click(screen.getByRole('button', { name: /expand/i }));
 
   expect(screen.getByText(children)).toBeInTheDocument();
 
-  userEvent.click(screen.getByRole('button', { name: /collapse/i }));
+  await user.click(screen.getByRole('button', { name: /collapse/i }));
 
   expect(screen.queryByText(children)).not.toBeInTheDocument();
 });
