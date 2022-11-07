@@ -6,7 +6,6 @@ import RemotePizza from '../RemotePizza';
 const ingredients = ['bacon', 'tomato', 'mozzarella', 'pineapples'];
 
 test('download ingredients from internets', async () => {
-  expect.assertions(4);
   const user = userEvent.setup();
 
   const fetchIngredients = () =>

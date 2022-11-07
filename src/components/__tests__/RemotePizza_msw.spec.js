@@ -11,7 +11,6 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 test('download ingredients from internets', async () => {
-  expect.assertions(4);
   const user = userEvent.setup();
 
   render(<RemotePizza />);
