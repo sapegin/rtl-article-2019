@@ -12,5 +12,5 @@ function App() {
   );
 }
 
-const rootElement = document.getElementById('root');
+const rootElement = document.querySelector('#root');
 ReactDOM.render(<App />, rootElement);

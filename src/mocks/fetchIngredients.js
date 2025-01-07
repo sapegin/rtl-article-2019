@@ -5,7 +5,7 @@ export const fetchIngredients = [
     return res(
       ctx.json({
         args: { ingredients: ['bacon', 'tomato', 'mozzarella', 'pineapples'] },
-      })
+      }),
     );
   }),
 ];

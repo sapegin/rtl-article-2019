@@ -5,13 +5,14 @@ import RemotePizza from '../RemotePizza';
 
 const ingredients = ['bacon', 'tomato', 'mozzarella', 'pineapples'];
 
+const fetchIngredients = () =>
+  Promise.resolve({
+    args: { ingredients },
+  });
+
 test('download ingredients from internets', async () => {
   const user = userEvent.setup();
 
-  const fetchIngredients = () =>
-    Promise.resolve({
-      args: { ingredients },
-    });
   render(<RemotePizza fetchIngredients={fetchIngredients} />);
 
   await user.click(screen.getByRole('button', { name: /cook/i }));

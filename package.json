@@ -12,13 +12,13 @@
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "eslint": "^8.26.0",
-    "eslint-config-tamia": "^8.0.1",
-    "eslint-plugin-jest-dom": "^4.0.2",
-    "eslint-plugin-testing-library": "^5.9.1",
+    "eslint": "^9.17.0",
+    "eslint-config-tamia": "^9.2.2",
+    "eslint-plugin-jest-dom": "^5.5.0",
+    "eslint-plugin-testing-library": "^7.1.1",
     "jest-environment-jsdom": "^29.2.2",
     "msw": "^0.47.4",
-    "prettier": "^2.7.1",
+    "prettier": "^3.4.2",
     "whatwg-fetch": "^3.6.2"
   },
   "scripts": {
@@ -30,7 +30,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint": "eslint . --cache --fix",
-    "format": "prettier --loglevel warn --write \"**/*.{js,md}\""
+    "format": "prettier --log-level warn --write \"**/*.{js,md}\""
   },
   "jest": {
     "setupFiles": [

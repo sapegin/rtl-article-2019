@@ -8,7 +8,9 @@ test('button expands and collapses the content', async () => {
 
   const children = 'Hello world';
   render(
-    <ExpandCollapse excerpt="Information about dogs">{children}</ExpandCollapse>
+    <ExpandCollapse excerpt="Information about dogs">
+      {children}
+    </ExpandCollapse>,
   );
 
   expect(screen.queryByText(children)).not.toBeInTheDocument();
