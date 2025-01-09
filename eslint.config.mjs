@@ -1,25 +1,34 @@
 import globals from 'globals';
-import tamiaReact from 'eslint-config-tamia/react';
+import js from '@eslint/js';
+import react from 'eslint-plugin-react';
 import testingLibrary from 'eslint-plugin-testing-library';
 import jestDom from 'eslint-plugin-jest-dom';
 
 export default [
-  ...tamiaReact,
+  js.configs.recommended,
+  react.configs.flat.recommended,
+  // TODO: Enable and Remove all React imports
+  //   react.configs.flat['jsx-runtime'],
   {
-    rules: {
-      'react/jsx-uses-react': 'error',
-      'react/jsx-uses-vars': 'error',
+    languageOptions: {
+      ...react.configs.flat.recommended.languageOptions,
+      globals: {
+        ...globals.es2024,
+        ...globals.browser,
+      },
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
   testingLibrary.configs['flat/react'],
   jestDom.configs['flat/recommended'],
   {
     rules: {
-      // 'no-await-in-loop': 0,
-      // 'testing-library/no-wait-for-empty-callback': 'error',
       'testing-library/prefer-explicit-assert': 'error',
       'testing-library/prefer-presence-queries': 'error',
-      // 'testing-library/prefer-wait-for': 'error',
     },
   },
   {
